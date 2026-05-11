@@ -190,7 +190,7 @@ data/
 ## 1. Clone the Repository
 
 ```bash
-git clone <repo-url>
+git clone git clone https://github.com/johnra161/PageIndex-RAG.git
 cd PageIndex-RAG
 ```
 
