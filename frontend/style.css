@@ -1,0 +1,335 @@
+/* ---------- Reset and base ---------- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #0f1115;
+    color: #e6e8eb;
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+/* ---------- Layout ---------- */
+
+header {
+    padding: 32px 24px 16px;
+    border-bottom: 1px solid #1f2937;
+}
+
+header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #f5f7fa;
+}
+
+header .subtitle {
+    margin-top: 4px;
+    color: #8b95a3;
+    font-size: 14px;
+}
+
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+section {
+    margin-bottom: 40px;
+    background: #161a23;
+    border: 1px solid #1f2937;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+section h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #f5f7fa;
+}
+
+.hint {
+    font-size: 13px;
+    color: #8b95a3;
+    margin-bottom: 12px;
+}
+
+/* ---------- Upload ---------- */
+
+.upload-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+input[type="file"] {
+    color: #e6e8eb;
+    padding: 8px 12px;
+    background: #0f1115;
+    border: 1px solid #1f2937;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button {
+    padding: 10px 20px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+button:hover:not(:disabled) {
+    background: #2563eb;
+}
+
+button:disabled {
+    background: #2d3748;
+    color: #6b7280;
+    cursor: not-allowed;
+}
+
+/* ---------- Status / progress ---------- */
+
+#status-area {
+    margin-top: 16px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #1f2937;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+#status-text {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #8b95a3;
+}
+
+/* ---------- Tree ---------- */
+
+#tree-container {
+    width: 100%;
+    height: 600px;
+    background: #0f1115;
+    border: 1px solid #1f2937;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+#tree-container svg {
+    display: block;
+    cursor: grab;
+}
+
+.tree-node circle {
+    stroke: #1f2937;
+    stroke-width: 1.5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tree-node text {
+    font-size: 11px;
+    fill: #cbd5e1;
+    pointer-events: none;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.tree-link {
+    fill: none;
+    stroke: #2d3748;
+    stroke-width: 1.5px;
+}
+
+/* Node states */
+.tree-node.state-default circle  { fill: #4b5563; }
+.tree-node.state-skipped  circle { fill: #6b7280; opacity: 0.4; }
+.tree-node.state-explored circle { fill: #3b82f6; }
+.tree-node.state-leaf     circle { fill: #22c55e; }
+.tree-node.has-children   circle { stroke: #60a5fa; stroke-width: 2px; }
+
+/* ---------- Tree legend ---------- */
+
+#tree-legend {
+    display: flex;
+    gap: 20px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: #8b95a3;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-default  { background: #4b5563; }
+.dot-skipped  { background: #6b7280; opacity: 0.4; }
+.dot-explored { background: #3b82f6; }
+.dot-leaf     { background: #22c55e; }
+
+/* ---------- Query ---------- */
+
+.query-controls {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+#query-input {
+    flex: 1 1 300px;
+    padding: 10px 14px;
+    background: #0f1115;
+    border: 1px solid #1f2937;
+    color: #e6e8eb;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+#query-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+#mode-select {
+    padding: 10px 14px;
+    background: #0f1115;
+    border: 1px solid #1f2937;
+    color: #e6e8eb;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* ---------- Answer area ---------- */
+
+#answer-area {
+    margin-top: 16px;
+}
+
+.answer-block {
+    background: #0f1115;
+    border: 1px solid #1f2937;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 12px;
+}
+
+.answer-block h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #60a5fa;
+    margin-bottom: 8px;
+}
+
+.answer-block .answer-text {
+    color: #e6e8eb;
+    font-size: 14px;
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+
+.answer-block .stats {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #1f2937;
+    font-size: 12px;
+    color: #8b95a3;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.comparison-block {
+    background: #1e293b;
+    border: 1px solid #3b82f6;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 12px;
+    color: #f5f7fa;
+}
+
+.comparison-block h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #60a5fa;
+    margin-bottom: 12px;
+}
+
+.comparison-block .metric {
+    font-size: 24px;
+    font-weight: 700;
+    color: #22c55e;
+}
+
+.thinking {
+    color: #8b95a3;
+    font-style: italic;
+    padding: 12px;
+}
+
+.error {
+    background: #2d1212;
+    border: 1px solid #7f1d1d;
+    color: #fca5a5;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+.cache-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #1e293b;
+    border: 1px solid #fbbf24;
+    color: #fbbf24;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.cache-tag {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    background: #1e293b;
+    border: 1px solid #fbbf24;
+    color: #fbbf24;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    vertical-align: middle;
+}

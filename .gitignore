@@ -1,0 +1,23 @@
+# Secrets
+.env
+
+# Virtual env
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
+
+# Runtime/generated data
+data/
+
+# PageIndex runtime outputs
+vendor/PageIndex/logs/
+vendor/PageIndex/results/
+
+# OS junk
+.DS_Store
+Thumbs.db

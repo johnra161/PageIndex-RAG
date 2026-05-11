@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualized Hierarchical RAG</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Visualized Hierarchical RAG</h1>
+        <p class="subtitle">PageIndex-powered document intelligence</p>
+    </header>
+
+    <main>
+        <!-- Upload Section -->
+        <section id="upload-section">
+            <h2>1. Upload a PDF</h2>
+            <div class="upload-controls">
+                <input type="file" id="file-input" accept=".pdf">
+                <button id="upload-btn" disabled>Upload &amp; Index</button>
+            </div>
+            <div id="status-area" hidden>
+                <div class="progress-bar">
+                    <div id="progress-fill"></div>
+                </div>
+                <div id="status-text">Waiting...</div>
+            </div>
+        </section>
+
+        <!-- Tree Section -->
+        <section id="tree-section" hidden>
+            <h2>2. Document Structure</h2>
+            <p class="hint">Click any node to expand or collapse it.</p>
+            <div id="tree-container"></div>
+            <div id="tree-legend">
+                <span class="legend-item"><span class="dot dot-default"></span> Not visited</span>
+                <span class="legend-item"><span class="dot dot-skipped"></span> Skipped</span>
+                <span class="legend-item"><span class="dot dot-explored"></span> Explored</span>
+                <span class="legend-item"><span class="dot dot-leaf"></span> Used in answer</span>
+            </div>
+        </section>
+
+        <!-- Query Section -->
+        <section id="query-section" hidden>
+            <h2>3. Ask a Question</h2>
+            <div class="query-controls">
+                <input type="text" id="query-input"
+                       placeholder="What was the company's net income?">
+                <select id="mode-select">
+                    <option value="hierarchical">Hierarchical RAG</option>
+                    <option value="long_context">Long Context (baseline)</option>
+                    <option value="both">Compare Both</option>
+                </select>
+                <button id="query-btn">Ask</button>
+            </div>
+            <div id="answer-area"></div>
+        </section>
+    </main>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="/static/app.js"></script>
+</body>
+</html>
