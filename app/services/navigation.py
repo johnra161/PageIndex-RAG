@@ -27,11 +27,11 @@ from app.services.llm_client import (
 )
 
 # Bounded search to keep cost and latency predictable.
-MAX_BREADTH = 2
-MAX_DEPTH = 4
+MAX_BREADTH = 20
+MAX_DEPTH = 5
 EMPTY_BATCH_PATIENCE = 2
-MAX_CONTEXT_TOKENS = 100_000
-LONG_CONTEXT_LIMIT = 120_000
+MAX_CONTEXT_TOKENS = 200_000
+LONG_CONTEXT_LIMIT = 200_000
 
 
 # ---------- Tree utilities ----------
